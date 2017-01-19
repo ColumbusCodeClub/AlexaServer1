@@ -13,14 +13,14 @@ app.launch( function( request, response ) {
 app.error = function( exception, request, response ) {
   console.log(exception)
   console.log(request);
-  console.log(response);  
+  console.log(response);
   response.say( 'Sorry an error occured ' + error.message);
 };
 
 app.intent('sayNumber',
   {
     "slots":{"number":"NUMBER"}
-  ,"utterances":[ 
+  ,"utterances":[
     "say the number {1-100|number}",
     "give me the number {!-100|number}",
     "tell me the number {!-100|number}",
@@ -28,7 +28,7 @@ app.intent('sayNumber',
   },
   function(request,response) {
     var number = request.slot('number');
-    response.say("You asked for the number "+number);
+    response.say(`You asked for the number ${number}, but I refuse.`);
   }
 );
 
