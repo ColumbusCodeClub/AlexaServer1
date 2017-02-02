@@ -1,11 +1,13 @@
 module.change_code = 1;
 'use strict';
 
-var alexa = require( 'alexa-app' );
-var app = new alexa.app( 'alexa-skill' );
-
+import alexa from 'alexa-app'
+import app from 'alexa-skill'
+import { onClientLoad, search } from './youTube'
 
 app.launch( function( request, response ) {
+  onClientLoad()
+  search()
   response.say( 'Welcome to your test skill' ).reprompt( 'Way to go. You got it to run. Bad ass.' ).shouldEndSession( false );
 } );
 
